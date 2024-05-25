@@ -469,26 +469,44 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 									</li>
 						</ul>
 				</div>
-				</div>
-		<div class="elementor-element elementor-element-f63b0a0 e-flex e-con-boxed e-con e-child" data-id="f63b0a0" data-element_type="container">
+			</div>
+			<div class="elementor-element elementor-element-f63b0a0 e-flex e-con-boxed e-con e-child" data-id="f63b0a0" data-element_type="container">
 					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-fe20cc3 e-flex e-con-boxed e-con e-child" data-id="fe20cc3" data-element_type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-fbaf89c elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="fbaf89c" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-			<style>/*! elementor - v3.21.0 - 08-05-2024 */
-.elementor-widget-image-box .elementor-image-box-content{width:100%}@media (min-width:768px){.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{display:flex}.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{text-align:end;flex-direction:row-reverse}.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper{text-align:start;flex-direction:row}.elementor-widget-image-box.elementor-position-top .elementor-image-box-img{margin:auto}.elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper{align-items:flex-start}.elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper{align-items:center}.elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper{align-items:flex-end}}@media (max-width:767px){.elementor-widget-image-box .elementor-image-box-img{margin-left:auto!important;margin-right:auto!important;margin-bottom:15px}}.elementor-widget-image-box .elementor-image-box-img{display:inline-block}.elementor-widget-image-box .elementor-image-box-title a{color:inherit}.elementor-widget-image-box .elementor-image-box-wrapper{text-align:center}.elementor-widget-image-box .elementor-image-box-description{margin:0}</style><div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><picture><source type="image/webp" data-srcset="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png.webp" srcset="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png.webp"><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" class="attachment-full size-full wp-image-3995 lazyloaded" alt="" data-eio="p" data-src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" data-eio-rwidth="60" data-eio-rheight="60"><noscript><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" class="attachment-full size-full wp-image-3995" alt="" data-eio="l" /></noscript></picture></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Date</h3><p class="elementor-image-box-description">26/04/2024</p></div></div>		</div>
-				</div>
+						<div class="elementor-element elementor-element-fe20cc3 e-flex e-con-boxed e-con e-child" data-id="fe20cc3" data-element_type="container">
+							<div class="e-con-inner">
+								<div class="elementor-element elementor-element-fbaf89c elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="fbaf89c" data-element_type="widget" data-widget_type="image-box.default">
+									<div class="elementor-widget-container">
+										<style>/*! elementor - v3.21.0 - 08-05-2024 */
+				.elementor-widget-image-box .elementor-image-box-content{width:100%}@media (min-width:768px){.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{display:flex}.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{text-align:end;flex-direction:row-reverse}.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper{text-align:start;flex-direction:row}.elementor-widget-image-box.elementor-position-top .elementor-image-box-img{margin:auto}.elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper{align-items:flex-start}.elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper{align-items:center}.elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper{align-items:flex-end}}@media (max-width:767px){.elementor-widget-image-box .elementor-image-box-img{margin-left:auto!important;margin-right:auto!important;margin-bottom:15px}}.elementor-widget-image-box .elementor-image-box-img{display:inline-block}.elementor-widget-image-box .elementor-image-box-title a{color:inherit}.elementor-widget-image-box .elementor-image-box-wrapper{text-align:center}.elementor-widget-image-box .elementor-image-box-description{margin:0}
+										</style>
+										
+										<div class="elementor-image-box-wrapper">
+											<figure class="elementor-image-box-img">
+												<picture>
+													<source type="image/webp" data-srcset="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png.webp" srcset="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png.webp">
+														<img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" class="attachment-full size-full wp-image-3995 lazyloaded" alt="" data-eio="p" data-src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" data-eio-rwidth="60" data-eio-rheight="60">
+														<noscript>
+															<img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/date-icon.png" class="attachment-full size-full wp-image-3995" alt="" data-eio="l" />
+														</noscript>
+												</picture>
+											</figure>
+											<div class="elementor-image-box-content">
+												<h3 class="elementor-image-box-title">Date</h3>
+												<p class="elementor-image-box-description">26/04/2024</p>
+											</div>
+										</div>		
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-		<div class="elementor-element elementor-element-5dfc7de e-flex e-con-boxed e-con e-child" data-id="5dfc7de" data-element_type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-728babc elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="728babc" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><picture><source type="image/webp" data-srcset="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png.webp" srcset="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png.webp"><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" class="attachment-full size-full wp-image-3997 lazyloaded" alt="" data-eio="p" data-src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" data-eio-rwidth="60" data-eio-rheight="60"><noscript><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" class="attachment-full size-full wp-image-3997" alt="" data-eio="l" /></noscript></picture></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Time</h3><p class="elementor-image-box-description">7:00PM</p></div></div>		</div>
-				</div>
-					</div>
-				</div>
+						<div class="elementor-element elementor-element-5dfc7de e-flex e-con-boxed e-con e-child" data-id="5dfc7de" data-element_type="container">
+									<div class="e-con-inner">
+								<div class="elementor-element elementor-element-728babc elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="728babc" data-element_type="widget" data-widget_type="image-box.default">
+								<div class="elementor-widget-container">
+							<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><picture><source type="image/webp" data-srcset="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png.webp" srcset="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png.webp"><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" class="attachment-full size-full wp-image-3997 lazyloaded" alt="" data-eio="p" data-src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" data-eio-rwidth="60" data-eio-rheight="60"><noscript><img loading="lazy" decoding="async" width="60" height="60" src="https://bitslab.com.au/wp-content/uploads/2024/04/time-icon.png" class="attachment-full size-full wp-image-3997" alt="" data-eio="l" /></noscript></picture></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Time</h3><p class="elementor-image-box-description">7:00PM</p></div></div>		</div>
+								</div>
+									</div>
+								</div>
 		<div class="elementor-element elementor-element-55d7262 e-flex e-con-boxed e-con e-child" data-id="55d7262" data-element_type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-a322dd7 elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="a322dd7" data-element_type="widget" data-widget_type="image-box.default">
