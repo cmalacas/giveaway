@@ -305,8 +305,6 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 				 data-id="e1856ac" 
 				 data-element_type="container"
 				>
-			<div class="elementor-element elementor-element-b3e3690 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="b3e3690" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
 					<style>/*! elementor - v3.21.0 - 08-05-2024 */
 							.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}
 							.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}
@@ -324,7 +322,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 								color: #fff;
 								font-size: 22px;
 								font-weight: 600;
-								width: 52%;
+								width: 75%;
 							}
 
 							.elementor-element-6fe6dce > .elementor-widget-container {
@@ -489,15 +487,64 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 							.elementor-element-f63b0a0 > .e-con-inner .e-con-inner > .elementor-widget {
 								width: 100%;
 							}
+
+							.text-subtitle {
+								color: #fff;
+								font-weight: bold;
+							}
+
+							.giveaway-text-content {
+								color: #fff;
+							}
+
+							.giveaway-text-content ul {
+								padding: 0;
+								margin: 0;
+								list-style: none;
+							}
+
+							.giveaway-text-content li {
+								background-image: url('/wp-content/uploads/2024/04/ph_seal-check.svg');
+								background-repeat: no-repeat;
+								padding-left: 30px;
+								padding-bottom: 10px;
+							}
+
+							.text-description {
+								color: #fff;
+
+							}
+
+							.text-description ul {
+								padding: 0;
+								margin: 0;
+							}
+
+							.text-description li {
+								list-style: none;
+								background-image: url('/wp-content/uploads/2024/04/ph_seal-check.svg');
+								background-repeat: no-repeat;
+								padding-left: 30px;
+								padding-bottom: 10px;	
+							}
 							
 					</style>				
-						Capped at <?= $max_join_user ?> Entrants!						
-				</div>
-			</div>
+												
+				
 				
 			<div class="elementor-element elementor-element-6fe6dce elementor-widget elementor-widget-text-editor" data-id="6fe6dce" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-							<?= get_the_title($post_id) ?></div>
+						<?= get_the_title($post_id) ?></div>
+				</div>
+
+				<div class="elementor-element elementor-element-b3e3690 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="b3e3690" data-element_type="widget" data-widget_type="text-editor.default">
+					<div class="elementor-widget-container">
+						<?= get_field('capped', $post_id) ?>
+					</div>
+				</div>
+
+				<div class="elementor-widget-container text-subtitle">
+					<?= get_field('subtitle', $post_id) ?>
 				</div>
 
 				<div 
@@ -506,7 +553,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 					data-element_type="widget" 
 					data-widget_type="icon-list.default"
 					>
-					<div class="elementor-widget-container">
+					<div class="elementor-widget-container giveaway-text-content">
 						<link rel="stylesheet" href="https://bitslab.com.au/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">		
 
 						<?= get_the_content() ?>
@@ -630,7 +677,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 											</figure>
 											<div class="elementor-image-box-content">
 												<h3 class="elementor-image-box-title">Date</h3>
-												<p class="elementor-image-box-description">26/04/2024</p>
+												<p class="elementor-image-box-description"><?= date("d/m/Y", strtotime(get_field('datetime_countdown', $post_id))) ?></p>
 											</div>
 										</div>		
 								</div>
@@ -683,7 +730,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 														class="elementor-image-box-content"
 													>
 														<h3 class="elementor-image-box-title">Time</h3>
-														<p class="elementor-image-box-description">7:00PM</p>
+														<p class="elementor-image-box-description"><?= date("h:A", strtotime(get_field('datetime_countdown', $post_id))); ?></p>
 													</div>
 												</div>		
 											</div>
@@ -766,7 +813,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 							data-widget_type="heading.default"
 						>
 							<div class="elementor-widget-container">
-								<h2 class="elementor-heading-title elementor-size-default">Noone caps a giveaway at <?= $max_join_user ?>, wait on, we do</h2>		
+								<h2 class="elementor-heading-title elementor-size-default"><?= get_field('description_title_1', $post_id) ?></h2>		
 							</div>
 						</div>
 						
@@ -777,7 +824,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 							data-widget_type="text-editor.default"
 						>
 							<div class="elementor-widget-container">
-								Others are capping at 800 or more, come to Bits Lab and enjoy a cap that will double your chances!						
+								<?= get_field('description_1') ?>					
 							</div>
 						</div>
 					</div>
@@ -789,11 +836,12 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 					>
 						<div class="elementor-element elementor-element-ad61cc7 elementor-widget elementor-widget-heading" data-id="ad61cc7" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Winner can choose 1 of the below.</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= get_field('description_title_2', $post_id) ?></h2>		</div>
 				</div>
-				<div class="elementor-element elementor-element-ff8edeb elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ff8edeb" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-element elementor-element-ff8edeb elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list text-description" data-id="ff8edeb" data-element_type="widget" data-widget_type="icon-list.default">
 				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items">
+					<?= get_field('description_2', $post_id) ?>
+					<!-- <ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.1744 9.63937C20.8209 9.27 20.4553 8.88938 20.3175 8.55469C20.19 8.24813 20.1825 7.74 20.175 7.24781C20.1609 6.33281 20.1459 5.29594 19.425 4.575C18.7041 3.85406 17.6672 3.83906 16.7522 3.825C16.26 3.8175 15.7519 3.81 15.4453 3.6825C15.1116 3.54469 14.73 3.17906 14.3606 2.82562C13.7137 2.20406 12.9788 1.5 12 1.5C11.0212 1.5 10.2872 2.20406 9.63937 2.82562C9.27 3.17906 8.88938 3.54469 8.55469 3.6825C8.25 3.81 7.74 3.8175 7.24781 3.825C6.33281 3.83906 5.29594 3.85406 4.575 4.575C3.85406 5.29594 3.84375 6.33281 3.825 7.24781C3.8175 7.74 3.81 8.24813 3.6825 8.55469C3.54469 8.88844 3.17906 9.27 2.82562 9.63937C2.20406 10.2863 1.5 11.0212 1.5 12C1.5 12.9788 2.20406 13.7128 2.82562 14.3606C3.17906 14.73 3.54469 15.1106 3.6825 15.4453C3.81 15.7519 3.8175 16.26 3.825 16.7522C3.83906 17.6672 3.85406 18.7041 4.575 19.425C5.29594 20.1459 6.33281 20.1609 7.24781 20.175C7.74 20.1825 8.24813 20.19 8.55469 20.3175C8.88844 20.4553 9.27 20.8209 9.63937 21.1744C10.2863 21.7959 11.0212 22.5 12 22.5C12.9788 22.5 13.7128 21.7959 14.3606 21.1744C14.73 20.8209 15.1106 20.4553 15.4453 20.3175C15.7519 20.19 16.26 20.1825 16.7522 20.175C17.6672 20.1609 18.7041 20.1459 19.425 19.425C20.1459 18.7041 20.1609 17.6672 20.175 16.7522C20.1825 16.26 20.19 15.7519 20.3175 15.4453C20.4553 15.1116 20.8209 14.73 21.1744 14.3606C21.7959 13.7137 22.5 12.9788 22.5 12C22.5 11.0212 21.7959 10.2872 21.1744 9.63937ZM20.0916 13.3228C19.6425 13.7916 19.1775 14.2763 18.9309 14.8716C18.6947 15.4434 18.6844 16.0969 18.675 16.7297C18.6656 17.3859 18.6553 18.0731 18.3638 18.3638C18.0722 18.6544 17.3897 18.6656 16.7297 18.675C16.0969 18.6844 15.4434 18.6947 14.8716 18.9309C14.2763 19.1775 13.7916 19.6425 13.3228 20.0916C12.8541 20.5406 12.375 21 12 21C11.625 21 11.1422 20.5387 10.6772 20.0916C10.2122 19.6444 9.72375 19.1775 9.12844 18.9309C8.55656 18.6947 7.90313 18.6844 7.27031 18.675C6.61406 18.6656 5.92688 18.6553 5.63625 18.3638C5.34562 18.0722 5.33437 17.3897 5.325 16.7297C5.31562 16.0969 5.30531 15.4434 5.06906 14.8716C4.8225 14.2763 4.3575 13.7916 3.90844 13.3228C3.45937 12.8541 3 12.375 3 12C3 11.625 3.46125 11.1422 3.90844 10.6772C4.35562 10.2122 4.8225 9.72375 5.06906 9.12844C5.30531 8.55656 5.31562 7.90313 5.325 7.27031C5.33437 6.61406 5.34469 5.92688 5.63625 5.63625C5.92781 5.34562 6.61031 5.33437 7.27031 5.325C7.90313 5.31562 8.55656 5.30531 9.12844 5.06906C9.72375 4.8225 10.2084 4.3575 10.6772 3.90844C11.1459 3.45937 11.625 3 12 3C12.375 3 12.8578 3.46125 13.3228 3.90844C13.7878 4.35562 14.2763 4.8225 14.8716 5.06906C15.4434 5.30531 16.0969 5.31562 16.7297 5.325C17.3859 5.33437 18.0731 5.34469 18.3638 5.63625C18.6544 5.92781 18.6656 6.61031 18.675 7.27031C18.6844 7.90313 18.6947 8.55656 18.9309 9.12844C19.1775 9.72375 19.6425 10.2084 20.0916 10.6772C20.5406 11.1459 21 11.625 21 12C21 12.375 20.5387 12.8578 20.0916 13.3228ZM16.2806 9.21937C16.3504 9.28903 16.4057 9.37175 16.4434 9.46279C16.4812 9.55384 16.5006 9.65144 16.5006 9.75C16.5006 9.84856 16.4812 9.94616 16.4434 10.0372C16.4057 10.1283 16.3504 10.211 16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1217 15.6557 10.039 15.6004 9.96937 15.5306L7.71937 13.2806C7.57864 13.1399 7.49958 12.949 7.49958 12.75C7.49958 12.551 7.57864 12.3601 7.71937 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44902 11.9996 8.63989 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.289 9.14964 15.3717 9.09432 15.4628 9.05658C15.5538 9.01884 15.6514 8.99941 15.75 8.99941C15.8486 8.99941 15.9462 9.01884 16.0372 9.05658C16.1283 9.09432 16.211 9.14964 16.2806 9.21937Z" fill="white"></path></svg>						</span>
@@ -804,7 +852,7 @@ class Elementor_Single_GiveAway_Widget extends \Elementor\Widget_Base
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.1744 9.63937C20.8209 9.27 20.4553 8.88938 20.3175 8.55469C20.19 8.24813 20.1825 7.74 20.175 7.24781C20.1609 6.33281 20.1459 5.29594 19.425 4.575C18.7041 3.85406 17.6672 3.83906 16.7522 3.825C16.26 3.8175 15.7519 3.81 15.4453 3.6825C15.1116 3.54469 14.73 3.17906 14.3606 2.82562C13.7137 2.20406 12.9788 1.5 12 1.5C11.0212 1.5 10.2872 2.20406 9.63937 2.82562C9.27 3.17906 8.88938 3.54469 8.55469 3.6825C8.25 3.81 7.74 3.8175 7.24781 3.825C6.33281 3.83906 5.29594 3.85406 4.575 4.575C3.85406 5.29594 3.84375 6.33281 3.825 7.24781C3.8175 7.74 3.81 8.24813 3.6825 8.55469C3.54469 8.88844 3.17906 9.27 2.82562 9.63937C2.20406 10.2863 1.5 11.0212 1.5 12C1.5 12.9788 2.20406 13.7128 2.82562 14.3606C3.17906 14.73 3.54469 15.1106 3.6825 15.4453C3.81 15.7519 3.8175 16.26 3.825 16.7522C3.83906 17.6672 3.85406 18.7041 4.575 19.425C5.29594 20.1459 6.33281 20.1609 7.24781 20.175C7.74 20.1825 8.24813 20.19 8.55469 20.3175C8.88844 20.4553 9.27 20.8209 9.63937 21.1744C10.2863 21.7959 11.0212 22.5 12 22.5C12.9788 22.5 13.7128 21.7959 14.3606 21.1744C14.73 20.8209 15.1106 20.4553 15.4453 20.3175C15.7519 20.19 16.26 20.1825 16.7522 20.175C17.6672 20.1609 18.7041 20.1459 19.425 19.425C20.1459 18.7041 20.1609 17.6672 20.175 16.7522C20.1825 16.26 20.19 15.7519 20.3175 15.4453C20.4553 15.1116 20.8209 14.73 21.1744 14.3606C21.7959 13.7137 22.5 12.9788 22.5 12C22.5 11.0212 21.7959 10.2872 21.1744 9.63937ZM20.0916 13.3228C19.6425 13.7916 19.1775 14.2763 18.9309 14.8716C18.6947 15.4434 18.6844 16.0969 18.675 16.7297C18.6656 17.3859 18.6553 18.0731 18.3638 18.3638C18.0722 18.6544 17.3897 18.6656 16.7297 18.675C16.0969 18.6844 15.4434 18.6947 14.8716 18.9309C14.2763 19.1775 13.7916 19.6425 13.3228 20.0916C12.8541 20.5406 12.375 21 12 21C11.625 21 11.1422 20.5387 10.6772 20.0916C10.2122 19.6444 9.72375 19.1775 9.12844 18.9309C8.55656 18.6947 7.90313 18.6844 7.27031 18.675C6.61406 18.6656 5.92688 18.6553 5.63625 18.3638C5.34562 18.0722 5.33437 17.3897 5.325 16.7297C5.31562 16.0969 5.30531 15.4434 5.06906 14.8716C4.8225 14.2763 4.3575 13.7916 3.90844 13.3228C3.45937 12.8541 3 12.375 3 12C3 11.625 3.46125 11.1422 3.90844 10.6772C4.35562 10.2122 4.8225 9.72375 5.06906 9.12844C5.30531 8.55656 5.31562 7.90313 5.325 7.27031C5.33437 6.61406 5.34469 5.92688 5.63625 5.63625C5.92781 5.34562 6.61031 5.33437 7.27031 5.325C7.90313 5.31562 8.55656 5.30531 9.12844 5.06906C9.72375 4.8225 10.2084 4.3575 10.6772 3.90844C11.1459 3.45937 11.625 3 12 3C12.375 3 12.8578 3.46125 13.3228 3.90844C13.7878 4.35562 14.2763 4.8225 14.8716 5.06906C15.4434 5.30531 16.0969 5.31562 16.7297 5.325C17.3859 5.33437 18.0731 5.34469 18.3638 5.63625C18.6544 5.92781 18.6656 6.61031 18.675 7.27031C18.6844 7.90313 18.6947 8.55656 18.9309 9.12844C19.1775 9.72375 19.6425 10.2084 20.0916 10.6772C20.5406 11.1459 21 11.625 21 12C21 12.375 20.5387 12.8578 20.0916 13.3228ZM16.2806 9.21937C16.3504 9.28903 16.4057 9.37175 16.4434 9.46279C16.4812 9.55384 16.5006 9.65144 16.5006 9.75C16.5006 9.84856 16.4812 9.94616 16.4434 10.0372C16.4057 10.1283 16.3504 10.211 16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1217 15.6557 10.039 15.6004 9.96937 15.5306L7.71937 13.2806C7.57864 13.1399 7.49958 12.949 7.49958 12.75C7.49958 12.551 7.57864 12.3601 7.71937 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44902 11.9996 8.63989 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.289 9.14964 15.3717 9.09432 15.4628 9.05658C15.5538 9.01884 15.6514 8.99941 15.75 8.99941C15.8486 8.99941 15.9462 9.01884 16.0372 9.05658C16.1283 9.09432 16.211 9.14964 16.2806 9.21937Z" fill="white"></path></svg>						</span>
 										<span class="elementor-icon-list-text">$3500 Cash alternative</span>
 									</li>
-						</ul>
+						</ul> -->
 				</div>
 				</div>
 				</div>
