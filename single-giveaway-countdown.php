@@ -106,124 +106,172 @@ class Elementor_Single_GiveAway_Countdown_Widget extends \Elementor\Widget_Base
 					}
 				}
 
-               ?>
+				$users = [];
 
-                <div class="elementor-element elementor-element-9919f69 e-flex e-con-boxed e-con e-child" data-id="9919f69" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-				        <div class="elementor-element elementor-element-7eb57bb elementor-widget elementor-widget-text-editor" data-id="7eb57bb" data-element_type="widget" data-widget_type="text-editor.default">
-				            <div class="elementor-widget-container">
-							    Entrants				
-                            </div>
-				        </div>
-				
-                        <div class="elementor-element elementor-element-8a3331f elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="8a3331f" data-element_type="widget" data-widget_type="text-editor.default">
-				            <div class="elementor-widget-container">
-							Time Left						</div>
-				</div>
-				<div class="elementor-element elementor-element-c0021ce elementor-widget elementor-widget-single-giveaway-widget" data-id="c0021ce" data-element_type="widget" id="single-giveaway_landing" data-widget_type="single-giveaway-widget.default">
-				<div class="elementor-widget-container">
-			
-		<div class="bitslab-giveaway bitslab-giveaway-widget">
-			<div class="bitslab-giveaway-grid__inner asddsadsadasdadasd">					<div class="bitslab-giveaway__inner">
-						<div class="bitslab-giveaway__col bitslab-giveaway__image">
-							<a href="https://bitslab.com.au/giveaway/hyte-y70-rebel/">
-								<picture><source type="image/webp" data-srcset="https://bitslab.com.au/wp-content/uploads/2024/04/MagicEraser_240521_220806.jpg.webp"><img decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAeAAQAAAAAH2XdrAAAAAnRSTlMAAHaTzTgAAAHXSURBVHja7cExAQAAAMKg9U9tDB+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgaD+kAAcuGLKEAAAAASUVORK5CYII=" data-eio="p" data-src="https://bitslab.com.au/wp-content/uploads/2024/04/MagicEraser_240521_220806.jpg" class="lazyload" data-eio-rwidth="1920" data-eio-rheight="1920"><noscript><img decoding="async" src="https://bitslab.com.au/wp-content/uploads/2024/04/MagicEraser_240521_220806.jpg" data-eio="l" /></noscript></picture>
-							</a>
+				$result = $wpdb->get_results("SELECT user_id FROM {$wpdb->prefix}usermeta WHERE meta_key = 'subscription_status' AND meta_value = 'active'");
+
+				foreach($result as $r) {
+
+					$users[] = $r->user_id;
+
+				}
+
+				$oneOffResults = $wpdb->get_results("SELECT user_id FROM {$wpdb->prefix}one_of_package WHERE post_id = $post_id");
+
+				foreach($oneOffResults as $row) {
+					$users[] = $row->user_id;
+				}
+
+				$showEntriesFrontEnd = count(array_unique($users));
+
+				$showEntriesFrontEnd = $showEntriesFrontEnd < $max_join_user ? $showEntriesFrontEnd : $max_join_user;
+
+    ?>
+		<style>
+			.elementor-element.elementor-element-7eb57bb {
+				text-align: center;
+				color: #00BEAD;
+				font-size: 24px;
+			}
+
+			.elementor-element-8a3331f > .elementor-widget-container {
+				padding: 10px 10px 10px 10px;
+    		background-color: transparent;
+    		background-image: linear-gradient(180deg, #4F7FF2 0%, #5946CE 100%);
+    		border-radius: 50px 50px 50px 50px;
+				color: #fff;
+				font-weight: 600;
+				font-size: 24px;
+				width: 15%;
+				text-align: center;
+				margin: 0 auto;
+			}
+
+			.progress-box progress {
+				margin: 0 auto;
+				display: block;
+    		vertical-align: baseline;
+    		position: relative;
+    		-webkit-appearance: none;
+    		appearance: none;
+    		background-color: transparent;
+    		border-radius: 100px;
+				width: 35%;
+			}
+
+			.progress-box p {
+				text-align: center;
+				font-size: 22px;
+			}
+
+			.elementor-element-9919f69 .bitslab-countdown-timer {
+				justify-content: center;
+			}
+
+			.elementor-element-9919f69 .bitslab-countdown-timer #days,
+			.elementor-element-9919f69 .bitslab-countdown-timer #hours,
+			.elementor-element-9919f69 .bitslab-countdown-timer #minutes,
+			.elementor-element-9919f69 .bitslab-countdown-timer #seconds {
+				padding: 25px 60px;
+				background: url('/wp-content/uploads/2024/04/timer-bg.png') no-repeat;
+			}
+
+			.elementor-element-9919f69 .bitslab-countdown-timer > div > span:nth-child(1) {
+				background: transparent;
+    		border: none;
+    		color: #fff;
+    		text-shadow: 0 2px 6px rgba(0,0,0,.25);
+    		font-size: 40px;
+    		padding: 0;
+			}
+
+			.elementor-element-9919f69 .bitslab-countdown-timer > div > span:nth-child(2) {
+				background: #fff;
+    		padding: 13px 25px;
+    		color: #F777F2;
+    		border-radius: 100px;
+    		font-size: 20px;
+    		font-weight: bold;
+			}
+		</style>
+
+  	<div 
+			class="elementor-element elementor-element-9919f69 e-flex e-con-boxed e-con e-child" 
+			data-id="9919f69" 
+			data-element_type="container" 
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
+		>
+			<div class="e-con-inner">
+					<div 
+						class="elementor-element elementor-element-7eb57bb elementor-widget elementor-widget-text-editor" 
+						data-id="7eb57bb" 
+						data-element_type="widget" 
+						data-widget_type="text-editor.default"
+					>
+						<div class="elementor-widget-container">
+							Entrants				
 						</div>
-						<div class="bitslab-wrap bitslab-giveaway__col bitslab-giveaway__content">
-							<h4 class="bitslab-giveaway__content-title">
-								<a href="https://bitslab.com.au/giveaway/hyte-y70-rebel/" style="color: #B609E7">
-									Hyte Y70 Rebel								</a>
-							</h4>
-
-							<div class="bitslab-giveaway__col bitslab-giveaway__value-mobile">
-								Or $3500 Cash							</div>
-
-							<div class="bitslab-giveaway__content-desc">
-								<div class="page" title="Page 1">
-<div class="layoutArea">
-<div class="column">
-
-<span style="color: #ff0000;"><strong>Capped at 400 Entrants! RRP $5700</strong></span>
-
-<span style="color: #33cccc;"><strong><span style="color: #cc99ff;">Hyte Y70 Touch</span> 4080 SUPER <span style="color: #cc99ff;">Gaming Rig by LCC</span></strong></span>
-<ul>
- 	<li>Hyte Y70 Touch - Black</li>
- 	<li>Asus ROG Strix GeForce RTX 4080 SUPER OC 16GB Graphics Card</li>
- 	<li>Asus ROG Strix Z790 H Z790-H Gaming WIFI LGA 1700 ATX</li>
- 	<li>Intel Core i7 14700KF Processor</li>
- 	<li>DeepCool Mystique 360 Liquid CPU Cooler LCD All-In-One Water Cooler</li>
- 	<li>Corsair Dominator RGB 32GB (2x16GB) DDR5</li>
- 	<li>Crucial P3 Plus M.2 NVMe SSD 2TB</li>
- 	<li>Lian Li Strimer Cables</li>
- 	<li>be quiet Pure Power 12M 80+ Gold 1000W Modular PCIe 5.0 Power Supply</li>
- 	<li>9x Lian Li SL120 UNI FAN</li>
- 	<li>Windows 11 Professional</li>
-</ul>
-<div dir="auto"><span style="color: #ff0000;">Noone caps a giveaway at 400</span>, wait on, we do 🙂</div>
-<div dir="auto">Others are capping at 800 or more, come to Bits Lab and enjoy a cap that can double your chances!</div>
-<div dir="auto"></div>
-<strong><span style="color: #cc99ff;">Winner can choose 1 of the below.</span></strong>
-<ul>
- 	<li>Y70 Rebel 4080 SUPER Gaming Rig</li>
- 	<li>$3500 Cash alternative</li>
-</ul>
-<em>Note: Not available to ACT customers.</em>
-
-</div>
-</div>
-</div>							</div>
-							<div class="d-flex">
-								
-																
-								<div class="progress-box 1212">
-																		<p>299 / 400</p>
-									<progress id="file" value="299" max="400"></progress>
-									<!-- <div class="progress-circle">test</div> -->
-								</div>
-
-								<div class="ml-4 date-giveaway">
-									<p>14/06/2024</p>
-								</div>
-							</div>
-							<div>
-								<div class="watch-live">watch live</div>
-								<div class="bitslab-countdown-timer bitslab-giveaway__content-timer" data-datetime="2024-06-14 12:00 pm" data-giveaway-id="4422">
-									<div id="days"><span>18</span><span>Day</span></div>
-									<div id="hours"><span>21</span><span>Hrs</span></div>
-									<div id="minutes"><span>30</span><span>Min</span></div>
-									<div id="seconds"><span>23</span><span>Sec</span></div>
-								</div>
-							</div>
-
-																		<div class="bitslab-giveaway__content-button 232323" data-link="https://bitslab.com.au/giveaway/hyte-y70-rebel//#signup-login" data-post-id="4422">
-											<a href="javascript:void(0)">ENTER NOW</a>
-										</div>
-																					
-																						</div>
-						<div class="bitslab-giveaway__col bitslab-giveaway__value">
-							Or $3500 Cash						</div>
 					</div>
-			</div>		</div>
+
+				<div class="progress-box 1212">
+					<p><?= $showEntriesFrontEnd ?> / <?= $max_join_user ?></p>
+					<progress id="file" value="<?= $showEntriesFrontEnd ?>" max="<?= $max_join_user ?>"></progress>									
+				</div>
+				
+        <div 
+					class="elementor-element elementor-element-8a3331f elementor-widget__width-initial elementor-widget elementor-widget-text-editor" 
+					data-id="8a3331f" 
+					data-element_type="widget" 
+					data-widget_type="text-editor.default"
+				>
+				  <div class="elementor-widget-container">
+							Time Left						
+					</div>
+				</div>	
+			</div>
+			
+			<div class="elementor-element counter-timer">
+				<div class="e-con-inner">
+					<div 
+						class="bitslab-countdown-timer bitslab-giveaway__content-timer" 
+						data-datetime="<?= get_field('datetime_countdown', $post_id) ?>" 
+						data-giveaway-id="<?= $post_id ?>">
+							<div id="days"><span>18</span><span>Day</span></div>
+							<div id="hours"><span>15</span><span>Hrs</span></div>
+							<div id="minutes"><span>50</span><span>Min</span></div>
+							<div id="seconds"><span>50</span><span>Sec</span></div>
+					</div>
+				</div>
+			</div>
 		</div>
-				</div>
-				<div class="elementor-element elementor-element-4c96a75 elementor-widget elementor-widget-text-editor" data-id="4c96a75" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							Or <span style="color: #ff12d2;">$3500</span> Cash						</div>
-				</div>
-				<div class="elementor-element elementor-element-e0dcf98 elementor-widget elementor-widget-button" data-id="e0dcf98" data-element_type="widget" data-widget_type="button.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="#enroll-scroll">
+
+		<div 
+			class="elementor-element elementor-element-4c96a75 elementor-widget elementor-widget-text-editor" 
+			data-id="4c96a75" 
+			data-element_type="widget" 
+			data-widget_type="text-editor.default"
+		>
+			<div class="elementor-widget-container">
+				Or <span style="color: #ff12d2;">$3500</span> Cash						
+			</div>
+		</div>
+
+		<div 
+			class="elementor-element elementor-element-e0dcf98 elementor-widget elementor-widget-button" 
+			data-id="e0dcf98" 
+			data-element_type="widget" 
+			data-widget_type="button.default"
+		>
+			<div class="elementor-widget-container">
+				<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="<?= get_permalink() ?>#signup-login">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Enter Now</span>
-					</span>
+							<span class="elementor-button-text">Enter Now</span>
+						</span>
 					</a>
+				</div>
+			</div>
 		</div>
-				</div>
-				</div>
-					</div>
-				</div>
                
                <?php
 
