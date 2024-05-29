@@ -185,8 +185,8 @@ class Elementor_Price_Table_Bitlabs_Widget extends \Elementor\Widget_Base
 				        <hr>
 				        <div class="bitslab-price-table-featured">
 					        <span class="bitslab-price-table-featured-label wy">What you’ll get:</span>
-                  <h3 class="name-entries"></h3>
-                  <span class="bitslab-price-table-featured-label it">into every single draw!</span>
+                  			<h3 class="name-entries"><?= $entries ?></h3>
+                  			<span class="bitslab-price-table-featured-label it">into every single draw!</span>
 					        
 									<?php
 									if ($settings['list_featured']) {
@@ -329,6 +329,22 @@ class Elementor_Price_Table_Bitlabs_Widget extends \Elementor\Widget_Base
                   display: block;
                   margin: 0 auto;
               }
+
+			  .bitslab-price-table-featured-label.wy {
+				text-align: center !important;
+				margin-top: 15px;
+			  }
+
+			  .bitslab-price-table-featured-label.it {
+				display: block !important;
+				text-align: center !important;
+				margin-bottom: 30px !important;
+			  }
+
+			  h3.name-entries {
+				color: #000;
+				font-weight: 400;
+			  }
 		        </style>		      
 		
 <?php
